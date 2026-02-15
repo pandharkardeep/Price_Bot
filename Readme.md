@@ -30,17 +30,14 @@ The system models:
 
 Let:
 
-```markdown
 $S = {1, 2, ..., N}$
-```
 
 be the set of charging stations.
 
 Each station ( i ) chooses:
 
-```markdown
+
 $p_i \in [p_{min}, p_{max}]$
-```
 
 Each station has:
 
@@ -54,9 +51,9 @@ Each station has:
 
 Users are distributed spatially:
 
-```markdown
+
 $u \in \mathbb{R}^2$
-```
+
 
 Each user chooses a station probabilistically based on utility.
 
@@ -66,9 +63,9 @@ Each user chooses a station probabilistically based on utility.
 
 User ( u )'s utility for station ( i ):
 
-```markdown
+
 $U_{u,i} = -\alpha p_i - \beta d(u, s_i) - \gamma w_i$
-```
+
 
 Where:
 
@@ -85,9 +82,9 @@ Where:
 
 Waiting is modeled as:
 
-```markdown
+
 $w_i = \frac{D_i}{C_i}$
-```
+
 
 Where:
 
@@ -102,17 +99,17 @@ This introduces **congestion externality**.
 
 Users choose probabilistically:
 
-```markdown
+
 $P_{u,i} =
 \frac{e^{U_{u,i}}}
 {\sum_{j=1}^{N} e^{U_{u,j}}}$
-```
+
 
 Total demand:
 
-```markdown
+
 $D_i = \sum_{u} P_{u,i}$
-```
+
 
 This ensures smooth, differentiable demand.
 
@@ -122,15 +119,15 @@ This ensures smooth, differentiable demand.
 
 Station profit:
 
-```markdown
-\Pi_i = (p_i - c_i) D_i
-```
+
+$\Pi_i = (p_i - c_i) D_i$
+
 
 Optional overload penalty:
 
-```markdown
-\Pi_i = (p_i - c_i) D_i - \lambda \max(0, D_i - C_i)
-```
+
+$\Pi_i = (p_i - c_i) D_i - \lambda \max(0, D_i - C_i)$
+
 
 ---
 
@@ -150,9 +147,9 @@ We compute **Nash equilibrium numerically** via iterative best-response.
 
 For each station:
 
-```markdown
-p_i^* = \arg\max_{p_i} \Pi_i(p_i, p_{-i})
-```
+
+$p_i^* = \arg\max_{p_i} \Pi_i(p_i, p_{-i})$
+
 
 Algorithm:
 
@@ -166,9 +163,9 @@ Algorithm:
 
 Convergence implies:
 
-```markdown
-\forall i, \quad p_i^* = BR_i(p_{-i}^*)
-```
+
+$\forall i, \quad p_i^* = BR_i(p_{-i}^*)$
+
 
 ---
 
@@ -191,16 +188,16 @@ Depending on parameters:
 
 ### 🔹 Low demand
 
-```markdown
-D \le \sum C_i
-```
+
+$D \le \sum C_i$
+
 → Prices collapse toward marginal cost.
 
 ### 🔹 High demand
 
-```markdown
-D > \sum C_i
-```
+
+$D > \sum C_i$
+
 → Congestion creates scarcity rents
 → Prices rise above marginal cost.
 
@@ -226,20 +223,6 @@ D > \sum C_i
 
 ---
 
-# 📂 Project Structure
-
-```
-ev_pricing_game/
-│
-├── station.py
-├── demand.py
-├── nash_solver.py
-├── simulation.py
-├── main.py
-└── README.md
-```
-
----
 
 # 📈 Example Output
 
