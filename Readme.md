@@ -2,8 +2,6 @@
 
 ### Spatial Bertrand Competition with Congestion Effects
 
----
-
 ## 📌 Overview
 
 This project simulates a **multi-agent pricing game** among EV charging stations operating in a spatial market with congestion effects.
@@ -32,17 +30,17 @@ The system models:
 
 Let:
 
-[
-S = {1,2,...,N}
-]
+```markdown
+**S = {1, 2, ..., N}**
+```
 
 be the set of charging stations.
 
 Each station ( i ) chooses:
 
-[
+```markdown
 p_i \in [p_{min}, p_{max}]
-]
+```
 
 Each station has:
 
@@ -56,9 +54,9 @@ Each station has:
 
 Users are distributed spatially:
 
-[
+```markdown
 u \in \mathbb{R}^2
-]
+```
 
 Each user chooses a station probabilistically based on utility.
 
@@ -68,9 +66,9 @@ Each user chooses a station probabilistically based on utility.
 
 User ( u )'s utility for station ( i ):
 
-[
+```markdown
 U_{u,i} = -\alpha p_i - \beta d(u, s_i) - \gamma w_i
-]
+```
 
 Where:
 
@@ -87,9 +85,9 @@ Where:
 
 Waiting is modeled as:
 
-[
+```markdown
 w_i = \frac{D_i}{C_i}
-]
+```
 
 Where:
 
@@ -104,17 +102,17 @@ This introduces **congestion externality**.
 
 Users choose probabilistically:
 
-[
+```markdown
 P_{u,i} =
 \frac{e^{U_{u,i}}}
 {\sum_{j=1}^{N} e^{U_{u,j}}}
-]
+```
 
 Total demand:
 
-[
+```markdown
 D_i = \sum_{u} P_{u,i}
-]
+```
 
 This ensures smooth, differentiable demand.
 
@@ -124,15 +122,15 @@ This ensures smooth, differentiable demand.
 
 Station profit:
 
-[
+```markdown
 \Pi_i = (p_i - c_i) D_i
-]
+```
 
 Optional overload penalty:
 
-[
+```markdown
 \Pi_i = (p_i - c_i) D_i - \lambda \max(0, D_i - C_i)
-]
+```
 
 ---
 
@@ -152,9 +150,9 @@ We compute **Nash equilibrium numerically** via iterative best-response.
 
 For each station:
 
-[
+```markdown
 p_i^* = \arg\max_{p_i} \Pi_i(p_i, p_{-i})
-]
+```
 
 Algorithm:
 
@@ -168,9 +166,9 @@ Algorithm:
 
 Convergence implies:
 
-[
+```markdown
 \forall i, \quad p_i^* = BR_i(p_{-i}^*)
-]
+```
 
 ---
 
@@ -193,16 +191,16 @@ Depending on parameters:
 
 ### 🔹 Low demand
 
-[
+```markdown
 D \le \sum C_i
-]
+```
 → Prices collapse toward marginal cost.
 
 ### 🔹 High demand
 
-[
+```markdown
 D > \sum C_i
-]
+```
 → Congestion creates scarcity rents
 → Prices rise above marginal cost.
 
@@ -260,19 +258,6 @@ Typical results:
 
 ---
 
-# 🚀 Extensions (Research Direction)
-
-This framework can be extended to:
-
-* 🔥 Multi-agent Reinforcement Learning
-* ⚡ Dynamic electricity wholesale pricing
-* 📉 Time-varying demand
-* 🏭 Grid load constraints
-* 🧠 Stackelberg leader-follower dynamics
-* 📍 Endogenous station location optimization
-* 🌍 Carbon pricing mechanisms
-
----
 
 # 📚 Research Context
 
@@ -325,17 +310,4 @@ Then solve using:
 * DQN
 * PPO
 
----
-
-# 📜 License
-
-MIT License (or your choice)
-
----
-
-# 👤 Author
-
-Built as a research-grade simulation for EV charging market pricing dynamics.
-
----
 
