@@ -41,9 +41,9 @@ $p_i \in [p_{min}, p_{max}]$
 
 Each station has:
 
-* Marginal cost: ( c_i )
-* Capacity: ( C_i )
-* Location: ( s_i \in \mathbb{R}^2 )
+* Marginal cost: ( $c_i$ )
+* Capacity: ( $C_i$ )
+* Location: ( $s_i \in \mathbb{R}^2$ )
 
 ---
 
@@ -69,12 +69,12 @@ $U_{u,i} = -\alpha p_i - \beta d(u, s_i) - \gamma w_i$
 
 Where:
 
-* ( p_i ) = station price
-* ( d(u, s_i) ) = Euclidean distance
-* ( w_i ) = waiting time
-* ( \alpha ) = price sensitivity
-* ( \beta ) = distance sensitivity
-* ( \gamma ) = congestion sensitivity
+* ( $p_i$ ) = station price
+* ( $d(u, s_i)$ ) = Euclidean distance
+* ( $w_i$ ) = waiting time
+* ( $\alpha$ ) = price sensitivity
+* ( $\beta$ ) = distance sensitivity
+* ( $\gamma$ ) = congestion sensitivity
 
 ---
 
@@ -88,8 +88,8 @@ $w_i = \frac{D_i}{C_i}$
 
 Where:
 
-* ( D_i ) = total demand at station ( i )
-* ( C_i ) = capacity
+* ( $D_i$ ) = total demand at station ( $i$ )
+* ( $C_i$ ) = capacity
 
 This introduces **congestion externality**.
 
@@ -276,9 +276,9 @@ This simulation provides a computational framework for:
 
 Replace best-response with:
 
-[
-\pi_i : \text{State} \rightarrow p_i
-]
+
+$\pi_i : \text{State} \rightarrow p_i$
+
 
 Where state includes:
 
