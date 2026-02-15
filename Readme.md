@@ -31,7 +31,7 @@ The system models:
 Let:
 
 ```markdown
-**S = {1, 2, ..., N}**
+$S = {1, 2, ..., N}$
 ```
 
 be the set of charging stations.
@@ -39,7 +39,7 @@ be the set of charging stations.
 Each station ( i ) chooses:
 
 ```markdown
-p_i \in [p_{min}, p_{max}]
+$p_i \in [p_{min}, p_{max}]$
 ```
 
 Each station has:
@@ -55,7 +55,7 @@ Each station has:
 Users are distributed spatially:
 
 ```markdown
-u \in \mathbb{R}^2
+$u \in \mathbb{R}^2$
 ```
 
 Each user chooses a station probabilistically based on utility.
@@ -67,7 +67,7 @@ Each user chooses a station probabilistically based on utility.
 User ( u )'s utility for station ( i ):
 
 ```markdown
-U_{u,i} = -\alpha p_i - \beta d(u, s_i) - \gamma w_i
+$U_{u,i} = -\alpha p_i - \beta d(u, s_i) - \gamma w_i$
 ```
 
 Where:
@@ -86,7 +86,7 @@ Where:
 Waiting is modeled as:
 
 ```markdown
-w_i = \frac{D_i}{C_i}
+$w_i = \frac{D_i}{C_i}$
 ```
 
 Where:
@@ -103,15 +103,15 @@ This introduces **congestion externality**.
 Users choose probabilistically:
 
 ```markdown
-P_{u,i} =
+$P_{u,i} =
 \frac{e^{U_{u,i}}}
-{\sum_{j=1}^{N} e^{U_{u,j}}}
+{\sum_{j=1}^{N} e^{U_{u,j}}}$
 ```
 
 Total demand:
 
 ```markdown
-D_i = \sum_{u} P_{u,i}
+$D_i = \sum_{u} P_{u,i}$
 ```
 
 This ensures smooth, differentiable demand.
